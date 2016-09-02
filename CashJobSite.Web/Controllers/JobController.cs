@@ -1,5 +1,4 @@
 ﻿using System.Web.Mvc;
-using CashJobSite.Application;
 using CashJobSite.Application.Commands;
 using CashJobSite.Application.Queries;
 using CashJobSite.Models;
@@ -10,12 +9,10 @@ namespace CashJobSite.Web.Controllers
 {
     public class JobController : Controller
     {
-        private readonly IJobService _jobService;
         private readonly IMediator _mediator;
 
-        public JobController(IJobService jobService, IMediator mediator)
+        public JobController(IMediator mediator)
         {
-            _jobService = jobService;
             _mediator = mediator;
         }
 
@@ -43,7 +40,7 @@ namespace CashJobSite.Web.Controllers
         [HttpPost]
         public ActionResult Apply(ApplyForJobViewModel model)
         {
-            _jobService.AddJobApplication(model.JobId, model.CandidateName, model.CandidateEmail, model.CandidateInfo);
+            _mediator.Send(new AddJobApplicationCommand(model.JobId, model.CandidateName, model.CandidateEmail, model.CandidateInfo));
 
             return RedirectToAction("Applied");
         }

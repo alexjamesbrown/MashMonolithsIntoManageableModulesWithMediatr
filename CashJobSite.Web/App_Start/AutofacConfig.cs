@@ -25,7 +25,6 @@ namespace CashJobSite.Web
             builder.RegisterType<JobReportRepository>().As<IRepository<JobReport>>();
             builder.RegisterType<JobApplicationRepository>().As<IRepository<JobApplication>>();
 
-            builder.RegisterType<JobService>().As<IJobService>();
             builder.RegisterType<EmailService>().As<IEmailService>();
             builder.RegisterType<Logger>().As<ILogger>();
 

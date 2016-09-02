@@ -53,15 +53,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommandHandlers\AddJobApplicationCommandHandler.cs" />
     <Compile Include="CommandHandlers\AddJobCommandHandler.cs" />
     <Compile Include="CommandHandlers\ReportJobCommandHandler.cs" />
+    <Compile Include="Commands\AddJobApplicationCommand.cs" />
     <Compile Include="Commands\AddJobCommand.cs" />
     <Compile Include="Commands\ReportJobCommand.cs" />
     <Compile Include="EmailService.cs" />
     <Compile Include="IEmailService.cs" />
-    <Compile Include="IJobService.cs" />
     <Compile Include="Logging\ILogger.cs" />
-    <Compile Include="JobService.cs" />
     <Compile Include="Logging\Logger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queries\FindAllJobsQuery.cs" />
