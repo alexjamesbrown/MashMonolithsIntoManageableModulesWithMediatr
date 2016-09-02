@@ -23,23 +23,7 @@ namespace CashJobSite.Application
             _logger = logger;
             _emailService = emailService;
         }
-
-        public Job AddJob(Job job)
-        {
-            try
-            {
-                _logger.Info("Saving job");
-                _jobRepository.Save(job);
-                _logger.Info("Job saved");
-                return job;
-            }
-            catch (Exception ex)
-            {
-                _logger.Error("Error saving job - " + ex.Message);
-                throw;
-            }
-        }
-
+ 
         public Job GetJobById(int id)
         {
             _logger.Info("Getting job with id " + id);

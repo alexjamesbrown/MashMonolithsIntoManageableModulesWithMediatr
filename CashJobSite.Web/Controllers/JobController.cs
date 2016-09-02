@@ -1,17 +1,21 @@
 ﻿using System.Web.Mvc;
 using CashJobSite.Application;
+using CashJobSite.Application.Commands;
 using CashJobSite.Models;
 using CashJobSite.Web.Models;
+using MediatR;
 
 namespace CashJobSite.Web.Controllers
 {
     public class JobController : Controller
     {
         private readonly IJobService _jobService;
+        private readonly IMediator _mediator;
 
-        public JobController(IJobService jobService)
+        public JobController(IJobService jobService, IMediator mediator)
         {
             _jobService = jobService;
+            _mediator = mediator;
         }
 
         public ActionResult Index(int id)
@@ -69,7 +73,7 @@ namespace CashJobSite.Web.Controllers
                 Cash = model.Cash
             };
 
-            var savedJob = _jobService.AddJob(job);
+            var savedJob = _mediator.Send(new AddJobCommand(job));
 
             return RedirectToAction("Posted", new { id = savedJob.Id });
         }

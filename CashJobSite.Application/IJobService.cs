@@ -5,8 +5,6 @@ namespace CashJobSite.Application
 {
     public interface IJobService
     {
-        Job AddJob(Job job);
-
         Job GetJobById(int id);
 
         IEnumerable<Job> FindAllJobs();
