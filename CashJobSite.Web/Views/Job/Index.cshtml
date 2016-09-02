@@ -1,0 +1,24 @@
+﻿@model CashJobSite.Models.Job
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1>@Model.Title</h1>
+            <h2>£@Model.Cash</h2>
+            <p>
+                @Model.Description <br />
+            </p>
+
+            <hr />
+
+            <div>
+                @Html.ActionLink("< Back to job list", "Index", "Home", new { }, new { @class = "btn btn-sm btn-success" })
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                @Html.ActionLink("Apply", "Apply", "Job", new { id = Model.Id }, new { @class = "btn btn-sm btn-success" })
+                @Html.ActionLink("Report", "Report", "Job", new { id = Model.Id }, new { @class = "btn btn-sm btn-danger" })
+            </div>
+
+        </div>
+    </div>
+</div>

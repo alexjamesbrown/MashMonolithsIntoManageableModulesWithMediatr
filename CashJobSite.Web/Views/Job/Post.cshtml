@@ -1,0 +1,37 @@
+﻿@model CashJobSite.Web.Models.PostJobViewModel
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-lg-12">
+            <h2>Post a job</h2>
+
+            @using (Html.BeginForm("Post", "Job", FormMethod.Post))
+            {
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Title)
+                    @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.Title)
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Description)
+                    @Html.TextAreaFor(x => x.Description, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.Description)
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.EmailAddress)
+                    @Html.TextBoxFor(x => x.EmailAddress, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.EmailAddress)
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Cash)
+                    @Html.TextBoxFor(x => x.Cash, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.Cash)
+                </div>
+
+                <input type="submit" class="btn btn-success" value="Post Job" />
+            }
+        </div>
+    </div>
+    
+</div>

@@ -1,0 +1,41 @@
+﻿@model CashJobSite.Web.Models.ApplyForJobViewModel
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-lg-12">
+            <h1>@Model.JobTitle</h1>
+            <h2>£@Model.JobCash</h2>
+            <p>
+                @Model.JobDescription
+            </p>
+
+            <hr />
+            <h3>Apply</h3>
+
+            @using (Html.BeginForm("Apply", "Job", FormMethod.Post))
+            {
+                @Html.HiddenFor(x => x.JobId)
+
+                <div class="form-group">
+                    @Html.LabelFor(x => x.CandidateName)
+                    @Html.TextBoxFor(x => x.CandidateName, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.CandidateName)
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(x => x.CandidateEmail)
+                    @Html.TextBoxFor(x => x.CandidateEmail, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.CandidateEmail)
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.CandidateInfo)
+                    @Html.TextAreaFor(x => x.CandidateInfo, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.CandidateInfo)
+                </div>
+
+                <input type="submit" class="btn btn-success" value="Apply" />
+            }
+        </div>
+    </div>
+</div>
