@@ -1,5 +1,4 @@
 ﻿using System.Web.Mvc;
-using CashJobSite.Application;
 using CashJobSite.Application.Queries;
 using CashJobSite.Web.Models;
 using MediatR;
@@ -8,12 +7,10 @@ namespace CashJobSite.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IJobService _jobService;
         private readonly IMediator _mediator;
 
-        public HomeController(IJobService jobService, IMediator mediator)
+        public HomeController(IMediator mediator)
         {
-            _jobService = jobService;
             _mediator = mediator;
         }
 
@@ -25,7 +22,6 @@ namespace CashJobSite.Web.Controllers
 
             return View(viewModel);
         }
-
 
         [HttpPost]
         public ActionResult Index([Bind(Prefix = "SearchForm")]SearchFormModel search)
