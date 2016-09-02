@@ -59,18 +59,6 @@ namespace CashJobSite.Application
             return result;
         }
 
-        public IEnumerable<Job> FindJobsListedOnDate(DateTime date)
-        {
-            _logger.Info("Finding all listed on " + date.ToShortDateString());
-
-            var result = _jobRepository.List(job => job.Created.ToShortDateString() == date.ToShortDateString())
-                .ToList();
-
-            _logger.Info($"Found {result.Count} jobs");
-
-            return result;
-        }
-
         public IEnumerable<Job> SearchJobs(string title, int cash)
         {
             _logger.Info("Searching jobs");

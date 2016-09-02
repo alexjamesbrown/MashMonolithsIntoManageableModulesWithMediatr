@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using CashJobSite.Models;
 
 namespace CashJobSite.Application
@@ -11,8 +10,6 @@ namespace CashJobSite.Application
         Job GetJobById(int id);
 
         IEnumerable<Job> FindAllJobs();
-
-        IEnumerable<Job> FindJobsListedOnDate(DateTime date);
 
         IEnumerable<Job> SearchJobs(string title, int cash);
 
