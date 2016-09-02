@@ -5,8 +5,6 @@ using CashJobSite.Application;
 using CashJobSite.Application.CommandHandlers;
 using CashJobSite.Application.Logging;
 using CashJobSite.Data;
-using CashJobSite.Data.Repositories;
-using CashJobSite.Models;
 using MediatR;
 
 namespace CashJobSite.Web
@@ -20,10 +18,6 @@ namespace CashJobSite.Web
             builder.RegisterControllers(typeof(MvcApplication).Assembly);
 
             builder.RegisterType<CashJobSiteDbContext>().As<ICashJobSiteDbContext>().InstancePerRequest();
-
-            builder.RegisterType<JobRepository>().As<IRepository<Job>>();
-            builder.RegisterType<JobReportRepository>().As<IRepository<JobReport>>();
-            builder.RegisterType<JobApplicationRepository>().As<IRepository<JobApplication>>();
 
             builder.RegisterType<EmailService>().As<IEmailService>();
             builder.RegisterType<Logger>().As<ILogger>();
