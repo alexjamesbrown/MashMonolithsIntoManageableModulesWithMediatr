@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using CashJobSite.Application.Logging;
+﻿using CashJobSite.Application.Logging;
 using CashJobSite.Data.Repositories;
 using CashJobSite.Models;
 
@@ -22,23 +19,6 @@ namespace CashJobSite.Application
             _jobApplicationRepository = jobApplicationRepository;
             _logger = logger;
             _emailService = emailService;
-        }
-
-        public void ReportJob(int id, string ipAddress)
-        {
-            var job = _jobRepository.GetById(id);
-
-            var emailSubject = "Job '" + job.Title + "' has been reported.";
-            var emailBody = "Somebody has reported job #" + job.Id;
-
-            _emailService.SendEmail("admin@CashJobSiteCashJobSite.com", emailSubject, emailBody);
-            _logger.Debug("Email Sent");
-
-            var jobReport = new JobReport { Job = job,  ReporterIpAddress = ipAddress};
-
-            _jobReportRepository.Save(jobReport);
-
-            _logger.Debug("Job report saved");
         }
 
         public void AddJobApplication(int jobId, string candidateName, string candidateEmail, string candidateInfo)

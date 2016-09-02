@@ -54,7 +54,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommandHandlers\AddJobCommandHandler.cs" />
+    <Compile Include="CommandHandlers\ReportJobCommandHandler.cs" />
     <Compile Include="Commands\AddJobCommand.cs" />
+    <Compile Include="Commands\ReportJobCommand.cs" />
     <Compile Include="EmailService.cs" />
     <Compile Include="IEmailService.cs" />
     <Compile Include="IJobService.cs" />

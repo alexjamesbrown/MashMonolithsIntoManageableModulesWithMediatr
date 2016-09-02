@@ -51,7 +51,8 @@ namespace CashJobSite.Web.Controllers
         public ActionResult Report(int id)
         {
             var ipAddress = Request.UserHostAddress;
-            _jobService.ReportJob(id, ipAddress);
+
+            _mediator.Send(new ReportJobCommand(id, ipAddress));
 
             var job = _mediator.Send(new GetJobByIdQuery(id));
 
