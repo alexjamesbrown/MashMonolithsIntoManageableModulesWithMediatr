@@ -5,8 +5,6 @@ namespace CashJobSite.Application
 {
     public interface IJobService
     {
-        IEnumerable<Job> FindAllJobs();
-
         IEnumerable<Job> SearchJobs(string title, int cash);
 
         void ReportJob(int id, string ipAddress);

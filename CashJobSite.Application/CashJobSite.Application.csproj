@@ -62,7 +62,9 @@
     <Compile Include="JobService.cs" />
     <Compile Include="Logging\Logger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queries\FindAllJobsQuery.cs" />
     <Compile Include="Queries\GetJobByIdQuery.cs" />
+    <Compile Include="QueryHandlers\FindAllJobsQueryHandler.cs" />
     <Compile Include="QueryHandlers\GetJobByIdQueryHandler.cs" />
   </ItemGroup>
   <ItemGroup>

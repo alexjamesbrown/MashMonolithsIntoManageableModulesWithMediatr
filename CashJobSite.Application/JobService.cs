@@ -23,19 +23,6 @@ namespace CashJobSite.Application
             _logger = logger;
             _emailService = emailService;
         }
- 
-        public IEnumerable<Job> FindAllJobs()
-        {
-            _logger.Info("Finding all jobs");
-
-            var result = _jobRepository.List()
-                .OrderByDescending(x => x.Created)
-                .ToList();
-
-            _logger.Info($"Found {result.Count()} jobs");
-
-            return result;
-        }
 
         public IEnumerable<Job> SearchJobs(string title, int cash)
         {
