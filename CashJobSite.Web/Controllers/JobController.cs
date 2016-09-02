@@ -1,6 +1,7 @@
 ﻿using System.Web.Mvc;
 using CashJobSite.Application;
 using CashJobSite.Application.Commands;
+using CashJobSite.Application.Queries;
 using CashJobSite.Models;
 using CashJobSite.Web.Models;
 using MediatR;
@@ -20,13 +21,13 @@ namespace CashJobSite.Web.Controllers
 
         public ActionResult Index(int id)
         {
-            var job = _jobService.GetJobById(id);
+            var job = _mediator.Send(new GetJobByIdQuery(id));
             return View(job);
         }
 
         public ActionResult Apply(int id)
         {
-            var job = _jobService.GetJobById(id);
+            var job = _mediator.Send(new GetJobByIdQuery(id));
 
             var viewModel = new ApplyForJobViewModel
             {
@@ -52,7 +53,8 @@ namespace CashJobSite.Web.Controllers
             var ipAddress = Request.UserHostAddress;
             _jobService.ReportJob(id, ipAddress);
 
-            var job = _jobService.GetJobById(id);
+            var job = _mediator.Send(new GetJobByIdQuery(id));
+
             return View(job);
         }
 

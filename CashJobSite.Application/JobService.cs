@@ -24,12 +24,6 @@ namespace CashJobSite.Application
             _emailService = emailService;
         }
  
-        public Job GetJobById(int id)
-        {
-            _logger.Info("Getting job with id " + id);
-            return _jobRepository.GetById(id);
-        }
-
         public IEnumerable<Job> FindAllJobs()
         {
             _logger.Info("Finding all jobs");
