@@ -64,8 +64,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queries\FindAllJobsQuery.cs" />
     <Compile Include="Queries\GetJobByIdQuery.cs" />
+    <Compile Include="Queries\SearchJobsQuery.cs" />
     <Compile Include="QueryHandlers\FindAllJobsQueryHandler.cs" />
     <Compile Include="QueryHandlers\GetJobByIdQueryHandler.cs" />
+    <Compile Include="QueryHandlers\SearchJobsQueryHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CashJobSite.Data\CashJobSite.Data.csproj">

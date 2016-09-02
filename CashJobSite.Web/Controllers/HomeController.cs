@@ -30,8 +30,7 @@ namespace CashJobSite.Web.Controllers
         [HttpPost]
         public ActionResult Index([Bind(Prefix = "SearchForm")]SearchFormModel search)
         {
-            var searchResults = _jobService
-                .SearchJobs(search.Title, search.Cash);
+            var searchResults = _mediator.Send(new SearchJobsQuery(search.Cash, search.Title));
 
             var viewModel = new HomePageViewModel { Jobs = searchResults, SearchForm = search };
 

@@ -24,28 +24,6 @@ namespace CashJobSite.Application
             _emailService = emailService;
         }
 
-        public IEnumerable<Job> SearchJobs(string title, int cash)
-        {
-            _logger.Info("Searching jobs");
-
-            IEnumerable<Job> result;
-
-            if (string.IsNullOrEmpty(title))
-            {
-                result = _jobRepository.List(job => job.Cash >= cash)
-                    .ToList();
-            }
-            else
-            {
-                result = _jobRepository.List(job => job.Title.StartsWith(title) && job.Cash >= cash)
-                    .ToList();
-            }
-
-            _logger.Info($"Found {result.Count()} jobs");
-
-            return result;
-        }
-
         public void ReportJob(int id, string ipAddress)
         {
             var job = _jobRepository.GetById(id);
