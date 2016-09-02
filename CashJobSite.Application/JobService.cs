@@ -120,11 +120,6 @@ namespace CashJobSite.Application
             
             _emailService.SendEmail(job.BossEmail, emailSubject, emailBody);
             _logger.Debug("Email Sent");
-
-            var jobReport = new JobReport { Job = job };
-            _jobReportRepository.Save(jobReport);
-
-            _logger.Debug("Job report saved");
         }
     }
 }
