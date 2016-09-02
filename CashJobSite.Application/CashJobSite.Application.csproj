@@ -55,12 +55,13 @@
   <ItemGroup>
     <Compile Include="CommandHandlers\AddJobApplicationCommandHandler.cs" />
     <Compile Include="CommandHandlers\AddJobCommandHandler.cs" />
+    <Compile Include="CommandHandlers\IRequest.cs" />
     <Compile Include="CommandHandlers\ReportJobCommandHandler.cs" />
+    <Compile Include="CommandHandlers\SendEmailCommandHandler.cs" />
     <Compile Include="Commands\AddJobApplicationCommand.cs" />
     <Compile Include="Commands\AddJobCommand.cs" />
     <Compile Include="Commands\ReportJobCommand.cs" />
-    <Compile Include="EmailService.cs" />
-    <Compile Include="IEmailService.cs" />
+    <Compile Include="Commands\SendEmailCommand.cs" />
     <Compile Include="Logging\ILogger.cs" />
     <Compile Include="Logging\Logger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

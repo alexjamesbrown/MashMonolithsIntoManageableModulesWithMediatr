@@ -10,13 +10,13 @@ namespace CashJobSite.Application.CommandHandlers
     public class ReportJobCommandHandler : IRequestHandler<ReportJobCommand, Unit>
     {
         private readonly ILogger _logger;
-        private readonly IEmailService _emailService;
+        private readonly IMediator _mediator;
         private readonly ICashJobSiteDbContext _dbContext;
 
-        public ReportJobCommandHandler(ILogger logger, IEmailService emailService, ICashJobSiteDbContext dbContext)
+        public ReportJobCommandHandler(ILogger logger, IMediator mediator, ICashJobSiteDbContext dbContext)
         {
             _logger = logger;
-            _emailService = emailService;
+            _mediator = mediator;
             _dbContext = dbContext;
         }
 
@@ -28,7 +28,8 @@ namespace CashJobSite.Application.CommandHandlers
             var emailSubject = "Job '" + job.Title + "' has been reported.";
             var emailBody = "Somebody has reported job #" + job.Id;
 
-            _emailService.SendEmail("admin@CashJobSiteCashJobSite.com", emailSubject, emailBody);
+            _mediator.Send(new SendEmailCommand("admin@CashJobSiteCashJobSite.com", emailSubject, emailBody));
+
             _logger.Debug("Email Sent");
 
             var jobReport = new JobReport { Job = job, ReporterIpAddress = message.IpAddress };

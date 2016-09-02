@@ -19,7 +19,6 @@ namespace CashJobSite.Web
 
             builder.RegisterType<CashJobSiteDbContext>().As<ICashJobSiteDbContext>().InstancePerRequest();
 
-            builder.RegisterType<EmailService>().As<IEmailService>();
             builder.RegisterType<Logger>().As<ILogger>();
 
             //mediatr

@@ -11,13 +11,13 @@ namespace CashJobSite.Application.CommandHandlers
     public class AddJobApplicationCommandHandler : IRequestHandler<AddJobApplicationCommand, Unit>
     {
         private readonly ILogger _logger;
-        private readonly IEmailService _emailService;
+        private readonly IMediator _mediator;
         private readonly ICashJobSiteDbContext _dbContext;
 
-        public AddJobApplicationCommandHandler(ILogger logger, IEmailService emailService, ICashJobSiteDbContext dbContext)
+        public AddJobApplicationCommandHandler(ILogger logger, IMediator mediator, ICashJobSiteDbContext dbContext)
         {
             _logger = logger;
-            _emailService = emailService;
+            _mediator = mediator;
             _dbContext = dbContext;
         }
 
@@ -43,7 +43,7 @@ namespace CashJobSite.Application.CommandHandlers
                             "Email: " + message.CandidateEmail + "\n" +
                             "Info: " + message.CandidateInfo + "\n";
 
-            _emailService.SendEmail(job.BossEmail, emailSubject, emailBody);
+            _mediator.Send(new SendEmailCommand(job.BossEmail, emailSubject, emailBody));
             _logger.Debug("Email Sent");
 
             return Unit.Value;
