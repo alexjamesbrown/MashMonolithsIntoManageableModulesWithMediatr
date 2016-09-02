@@ -91,7 +91,8 @@ namespace CashJobSite.Application
             _emailService.SendEmail("admin@CashJobSiteCashJobSite.com", emailSubject, emailBody);
             _logger.Debug("Email Sent");
 
-            var jobReport = new JobReport { Job = job };
+            var jobReport = new JobReport { Job = job,  ReporterIpAddress = ipAddress};
+
             _jobReportRepository.Save(jobReport);
 
             _logger.Debug("Job report saved");

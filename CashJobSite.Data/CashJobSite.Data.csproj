@@ -55,6 +55,10 @@
     <Compile Include="Migrations\201608311207555_InitialCreate.Designer.cs">
       <DependentUpon>201608311207555_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201609021019172_AddReporterIpAddress_To_JobReport.cs" />
+    <Compile Include="Migrations\201609021019172_AddReporterIpAddress_To_JobReport.Designer.cs">
+      <DependentUpon>201609021019172_AddReporterIpAddress_To_JobReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IRepository.cs" />
@@ -75,6 +79,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201608311207555_InitialCreate.resx">
       <DependentUpon>201608311207555_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609021019172_AddReporterIpAddress_To_JobReport.resx">
+      <DependentUpon>201609021019172_AddReporterIpAddress_To_JobReport.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -13,6 +13,8 @@ namespace CashJobSite.Models
 
         public virtual Job Job { get; set; }
 
+        public string ReporterIpAddress { get; set; }
+
         public DateTime Created { get; set; }
     }
 }
